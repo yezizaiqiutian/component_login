@@ -3,7 +3,6 @@ apply from: "../../component_config/lib_config/base_gradle.gradle"
 android {
 
     defaultConfig {
-        applicationId "com.gh.component_login"
         versionCode 1
         versionName "1.0"
 
@@ -21,7 +20,6 @@ android {
 
 dependencies {
 
-    implementation "com.gh.android:module_login"
     implementation "com.gh.android:lib_common"
 
 }
