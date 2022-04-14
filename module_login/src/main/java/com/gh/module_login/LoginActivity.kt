@@ -2,11 +2,11 @@ package com.gh.module_login
 
 import android.content.Context
 import android.content.Intent
-import android.os.Bundle
-import android.widget.Button
-import androidx.appcompat.app.AppCompatActivity
 import com.gh.lib_common.module.UserBean
+import com.gh.lib_core.baseui.BaseBindingActivity
+import com.gh.lib_core.baseui.BaseViewModel
 import com.gh.lib_core.utils.interceptor.InterceptorCheck
+import com.gh.module_login.databinding.LoginActivityLoginBinding
 
 /**
  * @author: gh
@@ -14,7 +14,7 @@ import com.gh.lib_core.utils.interceptor.InterceptorCheck
  * @date: 2022/3/23.
  * @from:
  */
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseBindingActivity<LoginActivityLoginBinding,BaseViewModel>() {
 
     companion object {
         fun access(context: Context) {
@@ -23,16 +23,14 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.login_activity_login)
+    override fun getLayoutId() = R.layout.login_activity_login
 
-        findViewById<Button>(R.id.btn_login).setOnClickListener {
+    override fun onInit() {
+        binding.btnLogin.setOnClickListener {
             UserBean.isLogin = true
             InterceptorCheck.instance.continueCheck()
             finish()
         }
-
     }
 
 }
