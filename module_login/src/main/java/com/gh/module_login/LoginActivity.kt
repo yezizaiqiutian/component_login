@@ -2,10 +2,12 @@ package com.gh.module_login
 
 import android.content.Context
 import android.content.Intent
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.gh.lib_common.module.UserBean
 import com.gh.lib_core.baseui.BaseBindingActivity
 import com.gh.lib_core.baseui.BaseViewModel
 import com.gh.lib_core.utils.interceptor.InterceptorCheck
+import com.gh.lib_router.login.LoginRoute
 import com.gh.module_login.databinding.LoginActivityLoginBinding
 
 /**
@@ -14,6 +16,7 @@ import com.gh.module_login.databinding.LoginActivityLoginBinding
  * @date: 2022/3/23.
  * @from:
  */
+@Route(path = LoginRoute.ACTIVITY_LOGIN)
 class LoginActivity : BaseBindingActivity<LoginActivityLoginBinding,BaseViewModel>() {
 
     companion object {
